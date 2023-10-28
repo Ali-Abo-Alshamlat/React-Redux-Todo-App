@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useRef } from "react";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit,AiFillCopy } from "react-icons/ai";
 import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
 
 const TodoItem = (props) => {
@@ -11,6 +11,9 @@ const TodoItem = (props) => {
   const changeFocus = () => {
     inputRef.current.disabled = false;
     inputRef.current.focus();
+  };
+  const copyTodo= () => {
+    navigator.clipboard.writeText(inputRef.current.value);
   };
 
   const update = (id, value, e) => {
@@ -44,6 +47,14 @@ const TodoItem = (props) => {
         onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
       />
       <div className="btns">
+      <motion.button
+          whileHover={{ scale: 1.4 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => copyTodo()}
+        >
+          {" "}
+          <AiFillCopy />{" "}
+        </motion.button>
         <motion.button
           whileHover={{ scale: 1.4 }}
           whileTap={{ scale: 0.9 }}
