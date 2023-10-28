@@ -35,7 +35,11 @@ body {
   display: flex;
   justify-content: center;
 }
-
+.searchTodos{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 .todo-input {
   min-width: 15rem;
   width: 40vw;
